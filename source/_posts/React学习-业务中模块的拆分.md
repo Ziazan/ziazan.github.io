@@ -60,7 +60,7 @@ var ProductTable = React.createClass({
 
 ### 收获
 在根据UI拆分模块的时候，根据数据模型进行拆分。
-代码编写的时候，在构建项目的时候， 从顶层往下构建会比较容易一点。
+代码编写的时候，在较简单的例子里，通常自顶向下要容易一些，然而在更大的项目上，自底向上地构建更容易
 
 -FilterableProductTable  (整体)
  -SearchBar（输入搜索框）
