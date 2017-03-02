@@ -1,5 +1,5 @@
 ---
-title: '[React学习]  业务中模块的拆分'
+title: '[React笔记]  业务中模块的拆分
 date: 2017-03-01 15:14:07
 tags: [react]
 categeories: [react]
@@ -60,7 +60,7 @@ var ProductTable = React.createClass({
 
 ### 收获
 在根据UI拆分模块的时候，根据数据模型进行拆分。
-代码编写的时候，在较简单的例子里，通常自顶向下要容易一些，然而在更大的项目上，自底向上地构建更容易
+代码编写的时候，在较简单的例子里，通常*自顶向下*要容易一些，然而在更大的项目上，*自底向上*地构建更容易
 
 -FilterableProductTable  (整体)
  -SearchBar（输入搜索框）
