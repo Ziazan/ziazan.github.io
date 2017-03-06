@@ -79,3 +79,6 @@ search:
   field: post
   format: html
   limit: 10000
+
+#内容分享服务
+jiathis: true
