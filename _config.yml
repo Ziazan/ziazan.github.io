@@ -82,3 +82,7 @@ search:
 
 #内容分享服务
 jiathis: true
+
+#siteMap
+sitemap:
+path: sitemap.xml
