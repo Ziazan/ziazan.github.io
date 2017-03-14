@@ -37,8 +37,8 @@ seo: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories
-  #about: /about
+  categories: /categories
+  about: /about
   archives: /archives
   tags: /tags
   #sitemap: /sitemap.xml
@@ -70,9 +70,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -132,8 +132,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
-  #LinkLabel: Link
+social:
+  GitHub: https://github.com/Ziazan
 
 
 # Social Links Icons
@@ -153,7 +153,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-#avatar:
+avatar: '/images/head.jpg'
 
 
 # Table Of Contents in the Sidebar
@@ -282,7 +282,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: ziazan-github
 
 # Disqus
 #disqus_shortname:
@@ -314,7 +314,7 @@ mathjax:
 #add_this_id:
 
 # Share
-#duoshuo_share: true
+duoshuo_share: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -341,7 +341,7 @@ duoshuo_info:
   ua_enable: true
   admin_enable: false
   user_id: 0
-  #admin_nickname: Author
+  admin_nickname: Author
 
 
 # Facebook SDK Support.
