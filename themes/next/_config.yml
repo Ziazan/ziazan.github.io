@@ -524,3 +524,8 @@ version: 5.1.0
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
+
+# 开启打赏功能
+reward_comment: '谢谢打赏~'
+wechatpay: '/images/wxPay.png'
+alipay: '/images/aliPay.jpg'
