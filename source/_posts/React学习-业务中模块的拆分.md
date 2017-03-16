@@ -1,8 +1,8 @@
 ---
-title: '[React笔记]  业务中模块的拆分
+title: '[React笔记]  业务中模块的拆分'
 date: 2017-03-01 15:14:07
-tags: [react]
-categories: [react]
+tags: react
+categories: react
 ---
 # [React学习]  业务中模块的拆分
 

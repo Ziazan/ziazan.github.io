@@ -1,9 +1,8 @@
 ---
-title: [React学习笔记]动画 : CSS3 Transition
+title: '[React笔记]动画:CSS3 Transition'
+tags: react
+categories: react
 date: 2017-03-15 16:32:24
-tags:[react]
-categories: [react]
-description: react css3 transition,react  动画
 ---
 在[汇智网](http://www.hubwiz.com)学习react,今天学习，react中的[CSS3 Transiton](http://www.hubwiz.com/class/552762019964049d1872fc88)
 # 知识点
