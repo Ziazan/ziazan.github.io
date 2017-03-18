@@ -1,0 +1,889 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="react," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在汇智网学习react,今天学习，react中的CSS3 Transiton
+知识点
+CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素重新渲染到真实DOM上，才可以触发过渡效果。react中使用 CSS3的步骤:
+
+为元素声明transition的样式
+设置属性的初始值，第一次渲染元素
+设置属性目标值，第二次渲染元素
+
+
+实践代码
+
+使用了一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[React笔记]动画:CSS3 Transition">
+<meta property="og:url" content="https://ziazan.github.io/2017/03/15/react-css3-transition/index.html">
+<meta property="og:site_name" content="ziazan笔记">
+<meta property="og:description" content="在汇智网学习react,今天学习，react中的CSS3 Transiton
+知识点
+CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素重新渲染到真实DOM上，才可以触发过渡效果。react中使用 CSS3的步骤:
+
+为元素声明transition的样式
+设置属性的初始值，第一次渲染元素
+设置属性目标值，第二次渲染元素
+
+
+实践代码
+
+使用了一个">
+<meta property="og:updated_time" content="2017-03-18T05:22:31.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[React笔记]动画:CSS3 Transition">
+<meta name="twitter:description" content="在汇智网学习react,今天学习，react中的CSS3 Transiton
+知识点
+CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素重新渲染到真实DOM上，才可以触发过渡效果。react中使用 CSS3的步骤:
+
+为元素声明transition的样式
+设置属性的初始值，第一次渲染元素
+设置属性目标值，第二次渲染元素
+
+
+实践代码
+
+使用了一个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ziazan.github.io/2017/03/15/react-css3-transition/"/>
+
+
+
+
+
+  <title> [React笔记]动画:CSS3 Transition | ziazan笔记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ziazan笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://ziazan.github.io/2017/03/15/react-css3-transition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ziazan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ziazan笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                [React笔记]动画:CSS3 Transition
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T16:32:24+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/15/react-css3-transition/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/15/react-css3-transition/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在<a href="http://www.hubwiz.com" target="_blank" rel="external">汇智网</a>学习react,今天学习，react中的<a href="http://www.hubwiz.com/class/552762019964049d1872fc88" target="_blank" rel="external">CSS3 Transiton</a></p>
+<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><blockquote>
+<p>CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素<strong>重新渲染到真实DOM上</strong>，才可以触发过渡效果。<br>react中使用 CSS3的步骤:</p>
+<ol>
+<li>为元素声明transition的样式</li>
+<li>设置属性的初始值，第一次渲染元素</li>
+<li>设置属性目标值，第二次渲染元素</li>
+</ol>
+</blockquote>
+<h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><blockquote>
+<ol>
+<li>使用了一个内部状态mounted 来实现第二次渲染：</li>
+<li>当初次渲染完成功后，通过setState()方法我们触发 了再次渲染</li>
+<li>window.getComputedStyle() 这个方法的目的是刷新DOM的样式，以便确保之前设置的样式已经被应用到DOM 上了。</li>
+</ol>
+</blockquote>
+<p><strong>代码1:</strong></p>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="qrXvPN" data-default-tab="js,result" data-user="ziazan" data-embed-version="2" data-pen-title="react CSS3 Transition-clock" class="codepen">See the Pen <a href="http://codepen.io/ziazan/pen/qrXvPN/" target="_blank" rel="external">react CSS3 Transition-clock</a> by ziazan (<a href="http://codepen.io/ziazan" target="_blank" rel="external">@ziazan</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React.findDOMNode(this.refs.ptr)</div></pre></td></tr></table></figure>
+<p>报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Uncaught TypeError: React.findDOMNode is not a function</div></pre></td></tr></table></figure></p>
+<p>在<a href="http://stackoverflow.com/questions/33031516/reactjs-finddomnode-and-getdomnode-are-not-functions" target="_blank" rel="external">这里</a>找到了答案。正解是:在最新的react版本中，<code>React.findDOMNode</code> 改为<code>ReactDOM.findDOMNode</code> 修改之后没有报错了。</p>
+<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>我想，既然是 要让指针转动，我设置指针的角度，不断地改变角度值不是就可以了吗？<br>所以我做了下面的修改<br><strong>代码2</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">value</span>: <span class="number">0</span>, <span class="comment">//速度值</span></div><div class="line">      mounted: <span class="literal">false</span>, <span class="comment">//是否已经挂到dom</span></div><div class="line">      degree: <span class="number">-201</span></div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.state.mounted) &#123;</div><div class="line">       <span class="keyword">this</span>.setState(&#123;<span class="attr">degree</span>:(<span class="keyword">this</span>.props.value / <span class="number">220</span>) * <span class="number">265</span> - <span class="number">201</span>&#125;);</div><div class="line">      <span class="comment">//确保之前的样式生效</span></div><div class="line"> <span class="built_in">window</span>.getComputedStyle(ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.ptr)).transform;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> style = &#123;</div><div class="line">      <span class="attr">transform</span>: <span class="string">'rotate('</span> + <span class="keyword">this</span>.state.degree + <span class="string">'deg)'</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">     ...</div><div class="line">    )</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>无情报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Uncaught RangeError: Maximum call stack size exceeded</div><div class="line">    at h._updateDOMProperties (react-dom.min.js:13)</div><div class="line">    at h.updateComponent (react-dom.min.js:13)</div><div class="line">    at h.receiveComponent (react-dom.min.js:13)</div><div class="line">    at Object.receiveComponent (react-dom.min.js:14)</div><div class="line">    at Object.updateChildren (react-dom.min.js:13)</div><div class="line">    at h._reconcilerUpdateChildren (react-dom.min.js:14)</div><div class="line">    at h._updateChildren (react-dom.min.js:14)</div><div class="line">    at h.updateChildren (react-dom.min.js:14)</div><div class="line">    at h._updateDOMChildren (react-dom.min.js:13)</div><div class="line">    at h.updateComponent (react-dom.min.js:13)</div><div class="line">    at h.receiveComponent (react-dom.min.js:13)</div><div class="line">    at Object.receiveComponent (react-dom.min.js:14)</div></pre></td></tr></table></figure></p>
+<p>解决方案<br>我在render方法中打<code>console.log(&#39;渲染第&#39;+(++i)+ &#39;次&#39;);</code>发现，<strong>代码2</strong>渲染输出了N多次，直到<code>Maximum call stack size exceeded</code>。而<strong>代码1</strong>中只渲染输出两次<br><a href="http://stackoverflow.com/questions/32716885/maximum-call-stack-exceeded-error-in-reactjs-can-someone-help-explain-whats-go" target="_blank" rel="external">stackoverflow</a></p>
+<blockquote>
+<p>You are calling <code>this.props.incCount</code> in <code>componentWillReceiveProps</code> which sets the state of the parent component and the effect will be that <code>AddingTheFriend</code> is rendered again, and this.props.incCount is called again. Hence the stack overflow.</p>
+</blockquote>
+<p>这让我想起了</p>
+<blockquote>
+<p>React要求我们使用 <code>setState()</code>方法来进行状态设置。这是因为，<code>setState()</code>方法会自动 地重新渲染组件。</p>
+</blockquote>
+<p>由此我猜测试 效果过渡时，设置了state,引起<code>ClockComp</code>的多次渲染，然后就溢出了。</p>
+<hr>
+<h2 id="第二种实现方式（多余）"><a href="#第二种实现方式（多余）" class="headerlink" title="第二种实现方式（多余）"></a>第二种实现方式（多余）</h2><p>但是我还是觉得这个方案是可行的，然后我再看了看代码。发现好像逻辑怪怪的。<br>最后进行了修改。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'渲染第'</span>+(++i)+ <span class="string">'次'</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'时钟的角度'</span>+<span class="keyword">this</span>.state.degree);</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.state.mounted) &#123;</div><div class="line">      <span class="comment">//根据属性值计算旋转角度</span></div><div class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.state.degree &lt; (<span class="keyword">this</span>.props.value / <span class="number">220</span>) * <span class="number">265</span> - <span class="number">201</span>)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">degree</span>: ++ <span class="keyword">this</span>.state.degree &#125;);</div><div class="line">      &#125;</div><div class="line">      <span class="comment">//确保之前的样式生效</span></div><div class="line">  <span class="built_in">window</span>.getComputedStyle(ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.ptr)).transform;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">    ...</div><div class="line">    )</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>效果是可以的，但是看日志发现，渲染了243次=.= ，应为是一次一次加的。再想想，看到了自己写的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.pointer</span>&#123;</div><div class="line">  <span class="attribute">position</span>:absolute;</div><div class="line">  <span class="attribute">left</span>:<span class="number">150px</span>;</div><div class="line">  <span class="attribute">top</span>:<span class="number">105px</span>;</div><div class="line">  <span class="attribute">transform-origin </span>: <span class="number">1px</span> <span class="number">45px</span>;</div><div class="line">  <span class="attribute">transition </span>: transform <span class="number">2s</span>; <span class="comment">/*注意这一行*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>发现自己完全没必要去 这么一点一点的增加角度来实现效果。(⊙o⊙)… 哎,我想多了。<br>傻逼的代码如下：</p>
+<p></p><p data-height="265" data-theme-id="dark" data-slug-hash="gmGjrm" data-default-tab="js,result" data-user="ziazan" data-embed-version="2" data-pen-title="react clock demo" class="codepen">See the Pen <a href="http://codepen.io/ziazan/pen/gmGjrm/" target="_blank" rel="external">react clock demo</a> by ziazan (<a href="http://codepen.io/ziazan" target="_blank" rel="external">@ziazan</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+      
+    </div>
+
+    <div>
+      
+        
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>谢谢打赏~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxPay.png" alt="ziazan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/aliPay.jpg" alt="ziazan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/09/项目中遇到的问题-图片未加载成功/" rel="next" title="遇到的问题:图片未加载成功">
+                <i class="fa fa-chevron-left"></i> 遇到的问题:图片未加载成功
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/18/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/15/react-css3-transition/"
+           data-title="[React笔记]动画:CSS3 Transition" data-url="https://ziazan.github.io/2017/03/15/react-css3-transition/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="ziazan" />
+          <p class="site-author-name" itemprop="name">ziazan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Ziazan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#知识点"><span class="nav-number">1.</span> <span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实践"><span class="nav-number">2.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">2.2.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1"><span class="nav-number">2.2.1.</span> <span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2"><span class="nav-number">2.2.2.</span> <span class="nav-text">问题2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种实现方式（多余）"><span class="nav-number">2.3.</span> <span class="nav-text">第二种实现方式（多余）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ziazan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ziazan-github"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F03%2F18%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[React笔记]动画:CSS3 Transition]]></title>
+      <url>%2F2017%2F03%2F15%2Freact-css3-transition%2F</url>
+      <content type="text"><![CDATA[在汇智网学习react,今天学习，react中的CSS3 Transiton 知识点 CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素重新渲染到真实DOM上，才可以触发过渡效果。react中使用 CSS3的步骤: 为元素声明transition的样式 设置属性的初始值，第一次渲染元素 设置属性目标值，第二次渲染元素 实践代码 使用了一个内部状态mounted 来实现第二次渲染： 当初次渲染完成功后，通过setState()方法我们触发 了再次渲染 window.getComputedStyle() 这个方法的目的是刷新DOM的样式，以便确保之前设置的样式已经被应用到DOM 上了。 代码1: See the Pen react CSS3 Transition-clock by ziazan (@ziazan) on CodePen. 遇到的问题问题11React.findDOMNode(this.refs.ptr) 报错:1Uncaught TypeError: React.findDOMNode is not a function 在这里找到了答案。正解是:在最新的react版本中，React.findDOMNode 改为ReactDOM.findDOMNode 修改之后没有报错了。 问题2我想，既然是 要让指针转动，我设置指针的角度，不断地改变角度值不是就可以了吗？所以我做了下面的修改代码2123456getInitialState: function() &#123; return &#123; value: 0, //速度值 mounted: false, //是否已经挂到dom degree: -201 &#125;; 12345678910111213render: function() &#123; if (this.state.mounted) &#123; this.setState(&#123;degree:(this.props.value / 220) * 265 - 201&#125;); //确保之前的样式生效 window.getComputedStyle(ReactDOM.findDOMNode(this.refs.ptr)).transform; &#125; var style = &#123; transform: 'rotate(' + this.state.degree + 'deg)' &#125; return ( ... ) &#125; 无情报错:12345678910111213Uncaught RangeError: Maximum call stack size exceeded at h._updateDOMProperties (react-dom.min.js:13) at h.updateComponent (react-dom.min.js:13) at h.receiveComponent (react-dom.min.js:13) at Object.receiveComponent (react-dom.min.js:14) at Object.updateChildren (react-dom.min.js:13) at h._reconcilerUpdateChildren (react-dom.min.js:14) at h._updateChildren (react-dom.min.js:14) at h.updateChildren (react-dom.min.js:14) at h._updateDOMChildren (react-dom.min.js:13) at h.updateComponent (react-dom.min.js:13) at h.receiveComponent (react-dom.min.js:13) at Object.receiveComponent (react-dom.min.js:14) 解决方案我在render方法中打console.log(&#39;渲染第&#39;+(++i)+ &#39;次&#39;);发现，代码2渲染输出了N多次，直到Maximum call stack size exceeded。而代码1中只渲染输出两次stackoverflow You are calling this.props.incCount in componentWillReceiveProps which sets the state of the parent component and the effect will be that AddingTheFriend is rendered again, and this.props.incCount is called again. Hence the stack overflow. 这让我想起了 React要求我们使用 setState()方法来进行状态设置。这是因为，setState()方法会自动 地重新渲染组件。 由此我猜测试 效果过渡时，设置了state,引起ClockComp的多次渲染，然后就溢出了。 第二种实现方式（多余）但是我还是觉得这个方案是可行的，然后我再看了看代码。发现好像逻辑怪怪的。最后进行了修改。123456789101112131415render: function() &#123; console.log('渲染第'+(++i)+ '次'); console.log('时钟的角度'+this.state.degree); if (this.state.mounted) &#123; //根据属性值计算旋转角度 if(this.state.degree &lt; (this.props.value / 220) * 265 - 201)&#123; this.setState(&#123;degree: ++ this.state.degree &#125;); &#125; //确保之前的样式生效 window.getComputedStyle(ReactDOM.findDOMNode(this.refs.ptr)).transform; &#125; return ( ... ) &#125; 效果是可以的，但是看日志发现，渲染了243次=.= ，应为是一次一次加的。再想想，看到了自己写的css1234567.pointer&#123; position:absolute; left:150px; top:105px; transform-origin : 1px 45px; transition : transform 2s; /*注意这一行*/&#125; 发现自己完全没必要去 这么一点一点的增加角度来实现效果。(⊙o⊙)… 哎,我想多了。傻逼的代码如下： See the Pen react clock demo by ziazan (@ziazan) on CodePen.]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[遇到的问题:图片未加载成功]]></title>
+      <url>%2F2017%2F03%2F09%2F%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E5%9B%BE%E7%89%87%E6%9C%AA%E5%8A%A0%E8%BD%BD%E6%88%90%E5%8A%9F%2F</url>
+      <content type="text"><![CDATA[问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。1234567//加入image节点var str = "";str+='&lt;img class="modal-img" src="'+ $(this).attr("src") +'"&gt;';$("body").append(str);$(".modal-img").each(function() &#123; new RTP.PinchZoom(this, &#123;&#125;); //执行方法&#125;); 可能原因后来输出日志发现，图片的高度为0。应该是图片未加载完，就去执行new RTP.PinchZoom(this, {})了。 解决办法用img.onload确保图片加载完1234567$(".modal-img").each(function() &#123; var img = new Image(),self = this; img.src = this.src; img.onload = function()&#123; new RTP.PinchZoom(self, &#123;&#125;); &#125;&#125;); 参看参考链接 浏览器加载起来非常快,几乎在给img赋值src的时候,图片就已经加载完成,同时触发了onload事件,代码中为onload赋值的语句就相当于在onload事件发生后,这时候已经晚了. 所以优化的方案是12345678$(".modal-img").each(function() &#123; var img = new Image(),self = this; img.onload = function()&#123; console.log('imgLoad'); &#125; img.src = this.src; new RTP.PinchZoom(self, &#123;&#125;);&#125;); 参考src与onload]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[React笔记]一些要注意的点]]></title>
+      <url>%2F2017%2F03%2F07%2FReact%E7%AC%94%E8%AE%B0-%E4%B8%80%E4%BA%9B%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9%2F</url>
+      <content type="text"><![CDATA[componentWillUpadate问题的出现在学习的时候，有一个例子的要求是， 使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！ 我一开始在componentWillUpadate()中 写的是1234567... componentWillUpadate:function()&#123; if(this.state.time.split(':')[2] === '00')&#123; this.state. = 'red'; &#125; &#125;... 程序报bug了。 我去找原因： You cannot use this.setState() in componentWillUpadate . If you need to update state in response to a prop change, use componentWillReceiveProps instead. 代码如下： See the Pen LWbYKY by ziazan (@ziazan) on CodePen. 官网上上说的是在componentWillUpadate 中不能用 this.setState() 方法。 设置组件style设置组件中的style属性时，要双大括号：123&lt;div className="ez-digi-clock" style=&#123;&#123;color:this.state.color&#125;&#125;&gt; &#123;this.state.time&#125;&lt;/div&gt; 这是因为 React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[React笔记] todoList Demo]]></title>
+      <url>%2F2017%2F03%2F06%2FReact%E7%AC%94%E8%AE%B0-todoList-Demo%2F</url>
+      <content type="text"><![CDATA[学习完了react 的入门教程 找了todoList的例子做了实践。代码代码放在了codepen See the Pen React todoList by ziazan (@ziazan) on CodePen. 问题 es6 知识遗忘 webpack 知识 es6 + react + webpack构建一个项目 思考最近的学习有点浮躁。我总是在学习过程搜索资料会遇到不会的知识，这时我就会有些受阻，心态也不是很好。今天看了一篇别人的学习文章，里面有我很认可的观点： 在学习的时候要分清主次。遇到问题的时候把问题记录下来，以主线学习为主。学完之后再回头来看自己遇到的其他线条的问题。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[React笔记] 反向数据流]]></title>
+      <url>%2F2017%2F03%2F02%2FReact%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E4%B8%AD%E7%9A%84%E5%9B%9E%E8%B0%83%2F</url>
+      <content type="text"><![CDATA[参考链接: http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html 在层级深处的表单组件需要更新上层级的state 官网解释每当用户改变表单，就通过更新 state 来反映用户的输入。由于组件应该只更新自己拥有的 state ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state 应被更新时回调函数就会被调用。我们可以使用 input 的 onChange 事件来接受它的通知。 FilterableProductTable 传递的回调函数将会调用 setState() ，然后应用将会被更新。 理解画出的图解我画了一个图来理解。图1 react 函数回调 参考代码See the Pen React-demo1 by ziazan (@ziazan) on CodePen.]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[React笔记] 业务中模块的拆分]]></title>
+      <url>%2F2017%2F03%2F01%2FReact%E5%AD%A6%E4%B9%A0-%E4%B8%9A%E5%8A%A1%E4%B8%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E6%8B%86%E5%88%86%2F</url>
+      <content type="text"><![CDATA[[React学习] 业务中模块的拆分根据官网的例子 React编程思想props 是一种从父级传递数据到子级的方式。 Example父级:12345678910var FilterableProductTable = React.createClass(&#123; render: function()&#123; return ( &lt;div&gt; &lt;SearchBar /&gt; &lt;ProductTable products=&#123;this.props.products&#125; /&gt; &lt;/div&gt; )&#125;&#125;); 子级:1234567891011121314151617181920212223242526272829var ProductTable = React.createClass(&#123; render: function()&#123; var rows = []; var lastCategory = null; this.props.products.forEach(function(product)&#123; //通过this.props.products 来获取父级传过来的数据 if(product.category !== lastCategory)&#123; rows.push( // 插入分类标题的头部 &lt;ProductCategoryRow category=&#123;product.category&#125; key=&#123;product.category&#125; /&gt; ) &#125; rows.push( &lt;ProductRow product=&#123;product&#125; key=&#123;product.name&#125; /&gt; ); lastCategory = product.category; &#125;); return ( &lt;table className="productTable"&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Name&lt;/th&gt; &lt;th&gt;Price&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt;&#123;rows&#125;&lt;/tbody&gt; &lt;/table&gt; ) &#125;&#125;); 根据官网示例写的代码（codepen）See the Pen React-demo1 by ziazan (@ziazan) on CodePen. 收获在根据UI拆分模块的时候，根据数据模型进行拆分。代码编写的时候，在较简单的例子里，通常自顶向下要容易一些，然而在更大的项目上，自底向上地构建更容易 -FilterableProductTable (整体) -SearchBar（输入搜索框） -ProductTable（显示的数据表格） -ProductCategoryRow（分类名/列表头） -ProductRow（每一行的商品）]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[复制高亮代码到印象笔记]]></title>
+      <url>%2F2017%2F02%2F28%2F%E5%A4%8D%E5%88%B6%E9%AB%98%E4%BA%AE%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%2F</url>
+      <content type="text"><![CDATA[工具印象笔记，sublime印象笔记中自带的插入代码块，插入的代码是真的不好看。像这样,不方便阅读。 1. sublime 安装插件： highlight 2. 复制代码：选择要复制的代码，鼠标右键=&gt;copy as HTML 3. 在印象笔记里面粘贴就好啦，就有代码高亮了。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[[回答]const 与let 以及 this]]></title>
+      <url>%2F2017%2F02%2F28%2F%E5%9B%9E%E7%AD%94-const-%E4%B8%8Elet-%E4%BB%A5%E5%8F%8A-this%2F</url>
+      <content type="text"><![CDATA[1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字 1.1 例子112345678910function foo()&#123; let name = 'su'; this.age = 12; console.log(name);//su console.log(age);//12 console.log(this.name);//undefined console.log(this.age);//12 console.log(this);//Window,此时this 指向的是Window&#125;foo(); 1.2 例子212345678910function foo()&#123; let name = 'su'; this.age = 12; console.log(name);//su console.log(age);//12 console.log(this.name);//undefined console.log(this.age);//12 console.log(this);//foo&#123;age: 12&#125;&#125;new foo(); 如果和new 关键字一起用， foo 作为构造函数调用。在函数的内部，this指向新创建的对象。 被调用的函数没有显式的 return 表达式，则隐式的会返回 this 对象 - 也就是新创建的对象。 1.3 例子31234567 var foo = &#123; age:12, printAge: function()&#123; console.log(this.age); &#125;&#125;foo.printAge();//&#123;age:12&#125; 当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象. 2.关于const 与 let的选择 const 与 let 都是用来声明变量的 let: 声明变量。 在可以使用var 声明的变量都可以考虑使用let 避免变量被重复定义。 const :声明常量。如果这个值在后面都不会改变，建议使用const 声明成常量。如： const PI = 3.1415926 这种。 (自己的一点点理解，以后慢慢补充)]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[git 创建空白分支]]></title>
+      <url>%2F2017%2F02%2F28%2Fgit-%E5%88%9B%E5%BB%BA%E7%A9%BA%E7%99%BD%E5%88%86%E6%94%AF%2F</url>
+      <content type="text"><![CDATA[git 创建空白分支今天在部署hexo的博客的时候，需要在github上创建两个分支。一个是发布分支 master 一个是开发分支dev。在我把发布内容已经提交到master分支时，我忽然想起，需要另开一个分支来把部署的代码放上去。这时我需要再开一条空白分支。 代码创建一个分支git checkout --orphan dev清空文件git rm -rf . 再按正常流程提交git commit -m &quot;message&quot; 在远程创建dev分支git push origin dev 参考：在git中创建一个空白分支]]></content>
+    </entry>
+
+    
+  
+  
+</search>
