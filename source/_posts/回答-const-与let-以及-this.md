@@ -12,6 +12,7 @@ this 的指向是由他所在函数调用的上下文决定的，而不是由它
 先看这篇文章:
 [走火入魔javascript — this关键字](http://yijiebuyi.com/blog/e86ed5c9cdba6ae21d2a5b06b391c3d2.html)
 
+<!--more-->
 #### 1.1 例子1
 ```javascript
 function  foo(){

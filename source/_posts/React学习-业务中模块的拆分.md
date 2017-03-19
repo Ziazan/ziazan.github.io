@@ -8,6 +8,7 @@ categories: react
 
 根据官网的例子 [React编程思想](http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html)
 *props* 是一种从父级传递数据到子级的方式。
+<!--more-->
 ### Example
 父级:
 ```javascript

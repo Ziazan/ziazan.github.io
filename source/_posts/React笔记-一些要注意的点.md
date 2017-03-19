@@ -9,6 +9,7 @@ categories: [react]
 在学习的时候，有一个例子的要求是，
 > 使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！
 
+<!--more-->
 我一开始在**componentWillUpadate()**中 写的是
 ```javascript
 ...

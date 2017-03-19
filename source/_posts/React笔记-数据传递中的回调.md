@@ -8,6 +8,7 @@ categories: [react]
 参考链接: http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html
 > 在层级深处的表单组件需要更新上层级的state
 
+<!--more-->
 #### 官网解释
 每当用户改变表单，就通过更新 state 来反映用户的输入。**由于组件应该只更新自己拥有的 state** ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state 应被更新时回调函数就会被调用。我们可以使用 input 的 onChange 事件来接受它的通知。 FilterableProductTable 传递的回调函数将会调用 setState() ，然后应用将会被更新。
 

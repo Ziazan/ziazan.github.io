@@ -6,7 +6,7 @@ categories: [react]
 ---
 
 ### 学习完了react 的入门教程 找了todoList的例子做了实践。
-
+<!--more-->
 # 代码
 
 代码放在了[codepen](http://codepen.io/ziazan/pen/MpyXZG)
