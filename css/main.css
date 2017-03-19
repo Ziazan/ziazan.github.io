@@ -1843,7 +1843,7 @@ sssss,
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e2ff2a;
+  background: #38e70f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2638,7 +2638,7 @@ sssss,
   overflow: hidden;
   padding: 0;
   width: 240px;
-  background: #fff;
+/*background: white;*/
   box-shadow: initial;
   border-radius: initial;
 }
@@ -2697,7 +2697,7 @@ sssss,
   box-sizing: border-box;
   padding: 40px;
   width: 700px;
-  background: #fff;
+/*background: white;*/
   min-height: 700px;
   box-shadow: initial;
   border-radius: initial;
@@ -2877,7 +2877,7 @@ sssss,
   box-sizing: border-box;
   width: 240px;
   color: #555;
-  background: #fff;
+/*background: white;*/
   box-shadow: initial;
   border-radius: initial;
 }
