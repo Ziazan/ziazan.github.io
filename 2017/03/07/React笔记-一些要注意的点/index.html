@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
-
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
+<meta name="description" content="在React中要注意在componentWillUpadate 中不能用 this.setState() 方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[React笔记]一些要注意的点">
 <meta property="og:url" content="https://ziazan.github.io/2017/03/07/React笔记-一些要注意的点/index.html">
 <meta property="og:site_name" content="ziazan笔记">
-<meta property="og:description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
-
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
-<meta property="og:updated_time" content="2017-03-19T06:26:39.830Z">
+<meta property="og:description" content="在React中要注意在componentWillUpadate 中不能用 this.setState() 方法。">
+<meta property="og:image" content="http://p1.bqimg.com/582279/ed220c3d21dd7467s.png">
+<meta property="og:updated_time" content="2017-03-19T08:06:46.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[React笔记]一些要注意的点">
-<meta name="twitter:description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
-
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
+<meta name="twitter:description" content="在React中要注意在componentWillUpadate 中不能用 this.setState() 方法。">
+<meta name="twitter:image" content="http://p1.bqimg.com/582279/ed220c3d21dd7467s.png">
 
 
 
@@ -379,7 +375,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      208
+                      223
                     </span>
               
 
@@ -414,11 +410,11 @@
       
 
       
-        <h2 id="componentWillUpadate"><a href="#componentWillUpadate" class="headerlink" title="componentWillUpadate"></a>componentWillUpadate</h2><h3 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h3><p>在学习的时候，有一个例子的要求是，</p>
+        <p><img src="http://p1.bqimg.com/582279/ed220c3d21dd7467s.png" alt="Markdown"><br>在React中要注意在componentWillUpadate 中不能用 this.setState() 方法。<br><a id="more"></a></p>
+<h2 id="componentWillUpadate"><a href="#componentWillUpadate" class="headerlink" title="componentWillUpadate"></a>componentWillUpadate</h2><h3 id="问题的出现"><a href="#问题的出现" class="headerlink" title="问题的出现"></a>问题的出现</h3><p>在学习的时候，有一个例子的要求是，</p>
 <blockquote>
 <p>使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！</p>
 </blockquote>
-<a id="more"></a>
 <p>我一开始在<strong>componentWillUpadate()</strong>中 写的是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"> componentWillUpadate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="keyword">this</span>.state.time.split(<span class="string">':'</span>)[<span class="number">2</span>] === <span class="string">'00'</span>)&#123;</div><div class="line">        <span class="keyword">this</span>.state. = <span class="string">'red'</span>;</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <p>程序报bug了。</p>
 <p>我去找原因：</p>
