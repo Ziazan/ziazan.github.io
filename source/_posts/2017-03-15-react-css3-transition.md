@@ -4,7 +4,9 @@ tags: react
 categories: react
 date: 2017-03-15 16:32:24
 ---
-在[汇智网](http://www.hubwiz.com)学习react,今天学习，react中的[CSS3 Transiton](http://www.hubwiz.com/class/552762019964049d1872fc88)
+在[汇智网](http://www.hubwiz.com)学习react,今天学习，react中的[CSS3 Transiton](http://www.hubwiz.com/class/552762019964049d1872fc88)  按照例子做了一个仪表盘
+![Markdown](http://p1.bqimg.com/582279/61793dd9d7d35c2at.jpg)
+<!--more-->
 # 知识点
 >CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素**重新渲染到真实DOM上**，才可以触发过渡效果。
 >react中使用 CSS3的步骤:
@@ -12,7 +14,7 @@ date: 2017-03-15 16:32:24
 >2. 设置属性的初始值，第一次渲染元素
 >3. 设置属性目标值，第二次渲染元素
 
-<!--more-->
+
 # 实践
 ## 代码
 >1. 使用了一个内部状态mounted 来实现第二次渲染：

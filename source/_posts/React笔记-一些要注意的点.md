@@ -4,12 +4,14 @@ date: 2017-03-07 14:36:25
 tags: [react]
 categories: [react]
 ---
+![Markdown](http://p1.bqimg.com/582279/ed220c3d21dd7467s.png)
+在React中要注意在componentWillUpadate 中不能用 this.setState() 方法。
+<!--more-->
 ## componentWillUpadate
 ### 问题的出现 
 在学习的时候，有一个例子的要求是，
 > 使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！
 
-<!--more-->
 我一开始在**componentWillUpadate()**中 写的是
 ```javascript
 ...

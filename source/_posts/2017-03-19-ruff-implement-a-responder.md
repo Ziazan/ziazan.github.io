@@ -4,8 +4,10 @@ date: 2017-03-19 12:05:31
 tags: ruff
 categories: ruff
 ---
+<img src='http://p1.bqimg.com/582279/2b0732ee0ac08cf6.jpg'>
 前几天入了ruff的板子，今天撸了[官网](https://ruff.io/zh-cn/)的官方教程[SOS 求救灯](http://community.ruff.io/t/ruff-lesson-1-sos/403/8) ，还有后面的课后练习-按键抢答器。
 <!--more-->
+
 # 按键抢答器
 >使用三个按键模块和两个板载LED灯。
 >- 如果按键 A 按下，板载蓝灯（led-b）亮；
