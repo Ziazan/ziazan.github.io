@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[[ruff学习]按键抢答器的实现]]></title>
+      <url>%2F2017%2F03%2F19%2Fruff-implement-a-responder%2F</url>
+      <content type="text"><![CDATA[前几天入了ruff的板子，今天撸了官网的官方教程SOS 求救灯 ，还有后面的课后练习-按键抢答器。 按键抢答器 使用三个按键模块和两个板载LED灯。 如果按键 A 按下，板载蓝灯（led-b）亮； 按键 B 按下，板载红灯（led-r）亮； 按键 C 用于重置抢答器，C 键按下，两灯都灭； 按键 A 或 B 按下后，直到按下按键 C 重置抢答器，即使另一按键按下，两LED 灯也不会有变化。 效果演示 实践材料清单我看了看后面的回复 因为套件里面只有两个大按钮，就使用板载的button-k2来作为重置按钮了 2个大按键模块 ruff板子 6根杜邦线 部署项目在此之前你需要参看官网写的 起步走 ruff开发的基本步骤 我这里用的是AP模式部署 step1:新建项目文件夹12mkdir respondercd responder step2:项目初始化1rap init step3:添加外设(参照这里)12rap device add button_a? model: CK002 12rap device add button_b? model: CK002 step4:硬件布局按图连线1rap layout --visual 事件绑定src/index.js具体的代码switchLed() 根据按钮的id来选择要触发的事件1234567891011121314function switchLed(id)&#123; switch(id)&#123; case 'button_a': if(!$('#led-b').isOn()) $('#led-r').turnOn(); break; case 'button_b': if(!$('#led-r').isOn()) $('#led-b').turnOn(); break; case 'button-k2': $('#led-r').turnOff(); $('#led-b').turnOff(); break; &#125;&#125; $.ready 中代码逻辑123456789101112131415161718$.ready(function (error) &#123; if (error) &#123; console.log(error); return; &#125; $('#button_a').on('push', function()&#123; console.log('Button_a pushed.'); switchLed('button_a'); &#125;); $('#button_b').on('push', function()&#123; console.log('Button_b pushed.'); switchLed('button_b'); &#125;); $('#button-k2').on('push', function()&#123; console.log('Button-k2 pushed.'); switchLed('button-k2'); &#125;);&#125;);]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>%2F2017%2F03%2F18%2Fhello-world%2F</url>
       <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
