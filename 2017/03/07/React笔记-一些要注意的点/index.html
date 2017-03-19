@@ -89,26 +89,20 @@
 
 <meta name="description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
 
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！
-
-我一开始在componentWillUpadate()中 写的是1234567... componentWillUpadate:function()&amp;#123;   if(this.state.time.spli">
+使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[React笔记]一些要注意的点">
 <meta property="og:url" content="https://ziazan.github.io/2017/03/07/React笔记-一些要注意的点/index.html">
 <meta property="og:site_name" content="ziazan笔记">
 <meta property="og:description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
 
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！
-
-我一开始在componentWillUpadate()中 写的是1234567... componentWillUpadate:function()&amp;#123;   if(this.state.time.spli">
-<meta property="og:updated_time" content="2017-03-18T05:22:31.619Z">
+使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
+<meta property="og:updated_time" content="2017-03-19T06:26:39.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[React笔记]一些要注意的点">
 <meta name="twitter:description" content="componentWillUpadate问题的出现在学习的时候，有一个例子的要求是，
 
-使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！
-
-我一开始在componentWillUpadate()中 写的是1234567... componentWillUpadate:function()&amp;#123;   if(this.state.time.spli">
+使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！">
 
 
 
@@ -389,6 +383,7 @@
 <blockquote>
 <p>使用componentWillUpdate()方法修改示例代码，使时钟在秒为0时显示为红色字体！</p>
 </blockquote>
+<a id="more"></a>
 <p>我一开始在<strong>componentWillUpadate()</strong>中 写的是<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"> componentWillUpadate:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="keyword">this</span>.state.time.split(<span class="string">':'</span>)[<span class="number">2</span>] === <span class="string">'00'</span>)&#123;</div><div class="line">        <span class="keyword">this</span>.state. = <span class="string">'red'</span>;</div><div class="line">    &#125;</div><div class="line"> &#125;</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <p>程序报bug了。</p>
 <p>我去找原因：</p>

@@ -10,13 +10,6 @@
 
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>%2F2017%2F03%2F18%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[[React笔记]动画:CSS3 Transition]]></title>
       <url>%2F2017%2F03%2F15%2Freact-css3-transition%2F</url>
       <content type="text"><![CDATA[在汇智网学习react,今天学习，react中的CSS3 Transiton 知识点 CSS3 Transition需要DOM属性的变化才能触发，所以我们需要将属性改变后的React 元素重新渲染到真实DOM上，才可以触发过渡效果。react中使用 CSS3的步骤: 为元素声明transition的样式 设置属性的初始值，第一次渲染元素 设置属性目标值，第二次渲染元素 实践代码 使用了一个内部状态mounted 来实现第二次渲染： 当初次渲染完成功后，通过setState()方法我们触发 了再次渲染 window.getComputedStyle() 这个方法的目的是刷新DOM的样式，以便确保之前设置的样式已经被应用到DOM 上了。 代码1: See the Pen react CSS3 Transition-clock by ziazan (@ziazan) on CodePen. 遇到的问题问题11React.findDOMNode(this.refs.ptr) 报错:1Uncaught TypeError: React.findDOMNode is not a function 在这里找到了答案。正解是:在最新的react版本中，React.findDOMNode 改为ReactDOM.findDOMNode 修改之后没有报错了。 问题2我想，既然是 要让指针转动，我设置指针的角度，不断地改变角度值不是就可以了吗？所以我做了下面的修改代码2123456getInitialState: function() &#123; return &#123; value: 0, //速度值 mounted: false, //是否已经挂到dom degree: -201 &#125;; 12345678910111213render: function() &#123; if (this.state.mounted) &#123; this.setState(&#123;degree:(this.props.value / 220) * 265 - 201&#125;); //确保之前的样式生效 window.getComputedStyle(ReactDOM.findDOMNode(this.refs.ptr)).transform; &#125; var style = &#123; transform: 'rotate(' + this.state.degree + 'deg)' &#125; return ( ... ) &#125; 无情报错:12345678910111213Uncaught RangeError: Maximum call stack size exceeded at h._updateDOMProperties (react-dom.min.js:13) at h.updateComponent (react-dom.min.js:13) at h.receiveComponent (react-dom.min.js:13) at Object.receiveComponent (react-dom.min.js:14) at Object.updateChildren (react-dom.min.js:13) at h._reconcilerUpdateChildren (react-dom.min.js:14) at h._updateChildren (react-dom.min.js:14) at h.updateChildren (react-dom.min.js:14) at h._updateDOMChildren (react-dom.min.js:13) at h.updateComponent (react-dom.min.js:13) at h.receiveComponent (react-dom.min.js:13) at Object.receiveComponent (react-dom.min.js:14) 解决方案我在render方法中打console.log(&#39;渲染第&#39;+(++i)+ &#39;次&#39;);发现，代码2渲染输出了N多次，直到Maximum call stack size exceeded。而代码1中只渲染输出两次stackoverflow You are calling this.props.incCount in componentWillReceiveProps which sets the state of the parent component and the effect will be that AddingTheFriend is rendered again, and this.props.incCount is called again. Hence the stack overflow. 这让我想起了 React要求我们使用 setState()方法来进行状态设置。这是因为，setState()方法会自动 地重新渲染组件。 由此我猜测试 效果过渡时，设置了state,引起ClockComp的多次渲染，然后就溢出了。 第二种实现方式（多余）但是我还是觉得这个方案是可行的，然后我再看了看代码。发现好像逻辑怪怪的。最后进行了修改。123456789101112131415render: function() &#123; console.log('渲染第'+(++i)+ '次'); console.log('时钟的角度'+this.state.degree); if (this.state.mounted) &#123; //根据属性值计算旋转角度 if(this.state.degree &lt; (this.props.value / 220) * 265 - 201)&#123; this.setState(&#123;degree: ++ this.state.degree &#125;); &#125; //确保之前的样式生效 window.getComputedStyle(ReactDOM.findDOMNode(this.refs.ptr)).transform; &#125; return ( ... ) &#125; 效果是可以的，但是看日志发现，渲染了243次=.= ，应为是一次一次加的。再想想，看到了自己写的css1234567.pointer&#123; position:absolute; left:150px; top:105px; transform-origin : 1px 45px; transition : transform 2s; /*注意这一行*/&#125; 发现自己完全没必要去 这么一点一点的增加角度来实现效果。(⊙o⊙)… 哎,我想多了。傻逼的代码如下： See the Pen react clock demo by ziazan (@ziazan) on CodePen.]]></content>
@@ -40,7 +33,7 @@
     <entry>
       <title><![CDATA[[React笔记] todoList Demo]]></title>
       <url>%2F2017%2F03%2F06%2FReact%E7%AC%94%E8%AE%B0-todoList-Demo%2F</url>
-      <content type="text"><![CDATA[学习完了react 的入门教程 找了todoList的例子做了实践。代码代码放在了codepen See the Pen React todoList by ziazan (@ziazan) on CodePen. 问题 es6 知识遗忘 webpack 知识 es6 + react + webpack构建一个项目 思考最近的学习有点浮躁。我总是在学习过程搜索资料会遇到不会的知识，这时我就会有些受阻，心态也不是很好。今天看了一篇别人的学习文章，里面有我很认可的观点： 在学习的时候要分清主次。遇到问题的时候把问题记录下来，以主线学习为主。学完之后再回头来看自己遇到的其他线条的问题。]]></content>
+      <content type="text"><![CDATA[学习完了react 的入门教程 找了todoList的例子做了实践。 代码代码放在了codepen See the Pen React todoList by ziazan (@ziazan) on CodePen. 问题 es6 知识遗忘 webpack 知识 es6 + react + webpack构建一个项目 思考最近的学习有点浮躁。我总是在学习过程搜索资料会遇到不会的知识，这时我就会有些受阻，心态也不是很好。今天看了一篇别人的学习文章，里面有我很认可的观点： 在学习的时候要分清主次。遇到问题的时候把问题记录下来，以主线学习为主。学完之后再回头来看自己遇到的其他线条的问题。]]></content>
     </entry>
 
     
@@ -76,6 +69,13 @@
       <title><![CDATA[git 创建空白分支]]></title>
       <url>%2F2017%2F02%2F28%2Fgit-%E5%88%9B%E5%BB%BA%E7%A9%BA%E7%99%BD%E5%88%86%E6%94%AF%2F</url>
       <content type="text"><![CDATA[git 创建空白分支今天在部署hexo的博客的时候，需要在github上创建两个分支。一个是发布分支 master 一个是开发分支dev。在我把发布内容已经提交到master分支时，我忽然想起，需要另开一个分支来把部署的代码放上去。这时我需要再开一条空白分支。 代码创建一个分支git checkout --orphan dev清空文件git rm -rf . 再按正常流程提交git commit -m &quot;message&quot; 在远程创建dev分支git push origin dev 参考：在git中创建一个空白分支]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F02%2F27%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
     </entry>
 
     

@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字
-1.1 例子112345678910function  foo()&amp;#123;  let name = &apos;su&apos;;  this.age = 12;	console.log(nam">
+<meta name="description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[回答]const 与let 以及 this">
 <meta property="og:url" content="https://ziazan.github.io/2017/02/28/回答-const-与let-以及-this/index.html">
 <meta property="og:site_name" content="ziazan笔记">
-<meta property="og:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字
-1.1 例子112345678910function  foo()&amp;#123;  let name = &apos;su&apos;;  this.age = 12;	console.log(nam">
-<meta property="og:updated_time" content="2017-03-18T05:22:31.623Z">
+<meta property="og:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
+<meta property="og:updated_time" content="2017-03-19T06:28:06.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[回答]const 与let 以及 this">
-<meta name="twitter:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字
-1.1 例子112345678910function  foo()&amp;#123;  let name = &apos;su&apos;;  this.age = 12;	console.log(nam">
+<meta name="twitter:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
 
 
 
@@ -377,6 +374,7 @@
 
       
         <h1 id="1-关于this"><a href="#1-关于this" class="headerlink" title="1.关于this"></a>1.关于this</h1><p>this 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。<br>（在函数内部，this的值取决于函数是如何调用的。）<br>先看这篇文章:<br><a href="http://yijiebuyi.com/blog/e86ed5c9cdba6ae21d2a5b06b391c3d2.html" target="_blank" rel="external">走火入魔javascript — this关键字</a></p>
+<a id="more"></a>
 <h4 id="1-1-例子1"><a href="#1-1-例子1" class="headerlink" title="1.1 例子1"></a>1.1 例子1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> name = <span class="string">'su'</span>;</div><div class="line">  <span class="keyword">this</span>.age = <span class="number">12</span>;</div><div class="line">	<span class="built_in">console</span>.log(name);<span class="comment">//su</span></div><div class="line">	<span class="built_in">console</span>.log(age);<span class="comment">//12</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);<span class="comment">//undefined</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.age);<span class="comment">//12</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//Window,此时this 指向的是Window</span></div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
 <h4 id="1-2-例子2"><a href="#1-2-例子2" class="headerlink" title="1.2 例子2"></a>1.2 例子2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> name = <span class="string">'su'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">12</span>;</div><div class="line">    <span class="built_in">console</span>.log(name);<span class="comment">//su</span></div><div class="line">    <span class="built_in">console</span>.log(age);<span class="comment">//12</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);<span class="comment">//undefined</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);<span class="comment">//12</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//foo&#123;age: 12&#125;</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">new</span> foo();</div></pre></td></tr></table></figure>
 <p> 如果和new 关键字一起用， foo 作为构造函数调用。在函数的内部，this指向新创建的对象。<br> 被调用的函数没有显式的 return 表达式，则隐式的会返回 this 对象 - 也就是新创建的对象。</p>

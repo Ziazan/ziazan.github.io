@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。1234567//加入image节点var str = &quot;&quot;;str+=&apos;&amp;lt;img class=&quot;modal-img&quot; src=&quot;&apos;+ $(this).attr(&quot;src&quot;) +&apos;&quot;&amp;gt;&apos;;$(&quot;body&quot;).append(str);$(&quot;.modal-img&quot;).each(fu">
+<meta name="description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="遇到的问题:图片未加载成功">
 <meta property="og:url" content="https://ziazan.github.io/2017/03/09/项目中遇到的问题-图片未加载成功/index.html">
 <meta property="og:site_name" content="ziazan笔记">
-<meta property="og:description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。1234567//加入image节点var str = &quot;&quot;;str+=&apos;&amp;lt;img class=&quot;modal-img&quot; src=&quot;&apos;+ $(this).attr(&quot;src&quot;) +&apos;&quot;&amp;gt;&apos;;$(&quot;body&quot;).append(str);$(&quot;.modal-img&quot;).each(fu">
-<meta property="og:updated_time" content="2017-03-18T05:22:31.629Z">
+<meta property="og:description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。">
+<meta property="og:updated_time" content="2017-03-19T06:29:05.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="遇到的问题:图片未加载成功">
-<meta name="twitter:description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。1234567//加入image节点var str = &quot;&quot;;str+=&apos;&amp;lt;img class=&quot;modal-img&quot; src=&quot;&apos;+ $(this).attr(&quot;src&quot;) +&apos;&quot;&amp;gt;&apos;;$(&quot;body&quot;).append(str);$(&quot;.modal-img&quot;).each(fu">
+<meta name="twitter:description" content="问题有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。">
 
 
 
@@ -373,7 +373,7 @@
       
 
       
-        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//加入image节点</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">""</span>;</div><div class="line">str+=<span class="string">'&lt;img class="modal-img" src="'</span>+ $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>) +<span class="string">'"&gt;'</span>;</div><div class="line">$(<span class="string">"body"</span>).append(str);</div><div class="line">$(<span class="string">".modal-img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">new</span> RTP.PinchZoom(<span class="keyword">this</span>, &#123;&#125;); <span class="comment">//执行方法</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>有一个功能是，点击图片进行预览。当时在测试的时候发现新加入的图片，点击后只有一层黑的遮罩，预览图片看不见。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//加入image节点</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">""</span>;</div><div class="line">str+=<span class="string">'&lt;img class="modal-img" src="'</span>+ $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>) +<span class="string">'"&gt;'</span>;</div><div class="line">$(<span class="string">"body"</span>).append(str);</div><div class="line">$(<span class="string">".modal-img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">new</span> RTP.PinchZoom(<span class="keyword">this</span>, &#123;&#125;); <span class="comment">//执行方法</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <h1 id="可能原因"><a href="#可能原因" class="headerlink" title="可能原因"></a>可能原因</h1><p>后来输出日志发现，图片的高度为0。应该是图片未加载完，就去执行<strong>new RTP.PinchZoom(this, {})</strong>了。</p>
 <h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>用<strong>img.onload</strong>确保图片加载完<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".modal-img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image(),self = <span class="keyword">this</span>;</div><div class="line">    img.src = <span class="keyword">this</span>.src;</div><div class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">new</span> RTP.PinchZoom(self, &#123;&#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>参看参考链接</p>

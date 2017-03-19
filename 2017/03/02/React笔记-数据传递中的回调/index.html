@@ -89,27 +89,21 @@
 
 <meta name="description" content="参考链接: http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html
 
-在层级深处的表单组件需要更新上层级的state
-
-官网解释每当用户改变表单，就通过更新 state 来反映用户的输入。由于组件应该只更新自己拥有的 state ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state">
+在层级深处的表单组件需要更新上层级的state">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[React笔记] 反向数据流">
 <meta property="og:url" content="https://ziazan.github.io/2017/03/02/React笔记-数据传递中的回调/index.html">
 <meta property="og:site_name" content="ziazan笔记">
 <meta property="og:description" content="参考链接: http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html
 
-在层级深处的表单组件需要更新上层级的state
-
-官网解释每当用户改变表单，就通过更新 state 来反映用户的输入。由于组件应该只更新自己拥有的 state ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state">
+在层级深处的表单组件需要更新上层级的state">
 <meta property="og:image" content="https://ziazan.github.io/2017/03/02/React笔记-数据传递中的回调/reactfunctionCallback.png">
-<meta property="og:updated_time" content="2017-03-18T05:22:31.619Z">
+<meta property="og:updated_time" content="2017-03-19T06:27:10.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[React笔记] 反向数据流">
 <meta name="twitter:description" content="参考链接: http://reactjs.cn/react/docs/thinking-in-react-zh-CN.html
 
-在层级深处的表单组件需要更新上层级的state
-
-官网解释每当用户改变表单，就通过更新 state 来反映用户的输入。由于组件应该只更新自己拥有的 state ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state">
+在层级深处的表单组件需要更新上层级的state">
 <meta name="twitter:image" content="https://ziazan.github.io/2017/03/02/React笔记-数据传递中的回调/reactfunctionCallback.png">
 
 
@@ -391,6 +385,7 @@
 <blockquote>
 <p>在层级深处的表单组件需要更新上层级的state</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="官网解释"><a href="#官网解释" class="headerlink" title="官网解释"></a>官网解释</h4><p>每当用户改变表单，就通过更新 state 来反映用户的输入。<strong>由于组件应该只更新自己拥有的 state</strong> ，FilterableProductTable 将会传递一个回调函数给 SearchBar ，每当 state 应被更新时回调函数就会被调用。我们可以使用 input 的 onChange 事件来接受它的通知。 FilterableProductTable 传递的回调函数将会调用 setState() ，然后应用将会被更新。</p>
 <h4 id="理解画出的图解"><a href="#理解画出的图解" class="headerlink" title="理解画出的图解"></a>理解画出的图解</h4><p>我画了一个图来理解。<br><img src="/2017/03/02/React笔记-数据传递中的回调/reactfunctionCallback.png" alt="react 函数回调" title="react 函数回调"><br>图1  react 函数回调</p>
 <h4 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h4><p></p><p data-height="265" data-theme-id="0" data-slug-hash="yMYwXm" data-default-tab="js" data-user="ziazan" data-embed-version="2" data-pen-title="React-demo1" class="codepen">See the Pen <a href="http://codepen.io/ziazan/pen/yMYwXm/" target="_blank" rel="external">React-demo1</a> by ziazan (<a href="http://codepen.io/ziazan" target="_blank" rel="external">@ziazan</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
