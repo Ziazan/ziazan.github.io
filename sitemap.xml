@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ziazan.github.io/2017/03/19/ruff-implement-a-responder/</loc>
+    
+    <lastmod>2017-03-29T15:30:32.043Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ziazan.github.io/2017/03/22/Cannot-call-method-getItem-of-null/</loc>
     
     <lastmod>2017-03-29T15:24:07.285Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://ziazan.github.io/2017/03/15/react-css3-transition/</loc>
     
     <lastmod>2017-03-19T08:02:49.409Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ziazan.github.io/2017/03/19/ruff-implement-a-responder/</loc>
-    
-    <lastmod>2017-03-19T07:55:03.867Z</lastmod>
     
   </url>
   
