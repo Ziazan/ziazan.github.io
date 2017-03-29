@@ -17,7 +17,7 @@ categories: ruff
 
 # 效果演示
 
-<img src='http://p1.bpimg.com/582279/059c16087c2040b5.gif'>
+<img src='http://i2.muimg.com/582279/059c16087c2040b5.gif'>
 
 # 实践
 
