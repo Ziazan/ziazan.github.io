@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,this,const,let,es6," />
+  <meta name="keywords" content="localStorage,android,webview,cookie," />
 
 
 
@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
+<meta name="description" content="问题项目时一个APP的外壳，在WebView中嵌入html5页面。我在h5中操作localStorage 来缓存数据，但是程序一到localStorage.getItme()就报错执行不下去。
+寻找线索在localStorage.getItme()进行了try catch看错误信息:Cannot call method &amp;#39;getItem&amp;#39; of null  似乎是不支持localS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[回答]const 与let 以及 this">
-<meta property="og:url" content="https://ziazan.github.io/2017/02/28/回答-const-与let-以及-this/index.html">
+<meta property="og:title" content="android webview localStorage 操作无效">
+<meta property="og:url" content="https://ziazan.github.io/2017/03/22/Cannot-call-method-getItem-of-null/index.html">
 <meta property="og:site_name" content="ziazan笔记">
-<meta property="og:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
-<meta property="og:updated_time" content="2017-03-19T06:28:06.629Z">
+<meta property="og:description" content="问题项目时一个APP的外壳，在WebView中嵌入html5页面。我在h5中操作localStorage 来缓存数据，但是程序一到localStorage.getItme()就报错执行不下去。
+寻找线索在localStorage.getItme()进行了try catch看错误信息:Cannot call method &amp;#39;getItem&amp;#39; of null  似乎是不支持localS">
+<meta property="og:updated_time" content="2017-03-29T15:24:07.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[回答]const 与let 以及 this">
-<meta name="twitter:description" content="1.关于thisthis 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。（在函数内部，this的值取决于函数是如何调用的。）先看这篇文章:走火入魔javascript — this关键字">
+<meta name="twitter:title" content="android webview localStorage 操作无效">
+<meta name="twitter:description" content="问题项目时一个APP的外壳，在WebView中嵌入html5页面。我在h5中操作localStorage 来缓存数据，但是程序一到localStorage.getItme()就报错执行不下去。
+寻找线索在localStorage.getItme()进行了try catch看错误信息:Cannot call method &amp;#39;getItem&amp;#39; of null  似乎是不支持localS">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://ziazan.github.io/2017/02/28/回答-const-与let-以及-this/"/>
+  <link rel="canonical" href="https://ziazan.github.io/2017/03/22/Cannot-call-method-getItem-of-null/"/>
 
 
 
 
 
-  <title> [回答]const 与let 以及 this | ziazan笔记 </title>
+  <title> android webview localStorage 操作无效 | ziazan笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://ziazan.github.io/2017/02/28/回答-const-与let-以及-this/">
+    <link itemprop="mainEntityOfPage" href="https://ziazan.github.io/2017/03/22/Cannot-call-method-getItem-of-null/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ziazan">
@@ -290,7 +293,7 @@
             
             
               
-                [回答]const 与let 以及 this
+                android webview localStorage 操作无效
               
             
           </h2>
@@ -305,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T17:42:37+08:00">
-                2017-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T09:41:59+08:00">
+                2017-03-22
               </time>
             
 
@@ -328,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/问题集/" itemprop="url" rel="index">
+                    <span itemprop="name">问题集</span>
                   </a>
                 </span>
 
@@ -346,8 +349,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/28/回答-const-与let-以及-this/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/28/回答-const-与let-以及-this/" itemprop="commentCount"></span>
+                <a href="/2017/03/22/Cannot-call-method-getItem-of-null/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/Cannot-call-method-getItem-of-null/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,7 +376,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      382字
+                      166字
                     </span>
               
 
@@ -389,7 +392,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      2分钟
+                      1分钟
                     </span>
               
             </div>
@@ -408,20 +411,11 @@
       
 
       
-        <h1 id="1-关于this"><a href="#1-关于this" class="headerlink" title="1.关于this"></a>1.关于this</h1><p>this 的指向是由他所在函数调用的上下文决定的，而不是由它所在的函数定义的上下文决定的。<br>（在函数内部，this的值取决于函数是如何调用的。）<br>先看这篇文章:<br><a href="http://yijiebuyi.com/blog/e86ed5c9cdba6ae21d2a5b06b391c3d2.html" target="_blank" rel="external">走火入魔javascript — this关键字</a></p>
-<a id="more"></a>
-<h4 id="1-1-例子1"><a href="#1-1-例子1" class="headerlink" title="1.1 例子1"></a>1.1 例子1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> name = <span class="string">'su'</span>;</div><div class="line">  <span class="keyword">this</span>.age = <span class="number">12</span>;</div><div class="line">	<span class="built_in">console</span>.log(name);<span class="comment">//su</span></div><div class="line">	<span class="built_in">console</span>.log(age);<span class="comment">//12</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);<span class="comment">//undefined</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.age);<span class="comment">//12</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//Window,此时this 指向的是Window</span></div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
-<h4 id="1-2-例子2"><a href="#1-2-例子2" class="headerlink" title="1.2 例子2"></a>1.2 例子2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> name = <span class="string">'su'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">12</span>;</div><div class="line">    <span class="built_in">console</span>.log(name);<span class="comment">//su</span></div><div class="line">    <span class="built_in">console</span>.log(age);<span class="comment">//12</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);<span class="comment">//undefined</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);<span class="comment">//12</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//foo&#123;age: 12&#125;</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">new</span> foo();</div></pre></td></tr></table></figure>
-<p> 如果和new 关键字一起用， foo 作为构造函数调用。在函数的内部，this指向新创建的对象。<br> 被调用的函数没有显式的 return 表达式，则隐式的会返回 this 对象 - 也就是新创建的对象。</p>
-<h4 id="1-3-例子3"><a href="#1-3-例子3" class="headerlink" title="1.3 例子3"></a>1.3 例子3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> foo = &#123;</div><div class="line">    <span class="attr">age</span>:<span class="number">12</span>,</div><div class="line">    <span class="attr">printAge</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">foo.printAge();<span class="comment">//&#123;age:12&#125;</span></div></pre></td></tr></table></figure>
-<p>当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象.</p>
-<h1 id="2-关于const-与-let的选择"><a href="#2-关于const-与-let的选择" class="headerlink" title="2.关于const 与 let的选择"></a>2.关于const 与 let的选择</h1><ul>
-<li>const 与 let 都是用来声明变量的</li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="external">let</a>: 声明变量。 在可以使用var 声明的变量都可以考虑使用let 避免变量被重复定义。</li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="external">const</a> :声明常量。如果这个值在后面都不会改变，建议使用const 声明成常量。如： const PI = 3.1415926 这种。</li>
-</ul>
-<p>(自己的一点点理解，以后慢慢补充)</p>
-<!-- 参考链接: [javascript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/#function.this) -->
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>项目时一个APP的外壳，在WebView中嵌入html5页面。我在h5中操作localStorage 来缓存数据，但是程序一到<code>localStorage.getItme()</code>就报错执行不下去。</p>
+<h1 id="寻找线索"><a href="#寻找线索" class="headerlink" title="寻找线索"></a>寻找线索</h1><p>在<code>localStorage.getItme()</code>进行了<code>try catch</code>看错误信息:<br><code>Cannot call method &#39;getItem&#39; of null</code>  似乎是不支持<code>localStorage</code>的操作。但是其他页面的<code>localStorage</code> 操作没有问题呀？是不是安卓那边的原因？</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>后来在<a href="http://stackoverflow.com" target="_blank" rel="external">stackoverflow</a>找到<a href="http://stackoverflow.com/questions/5822256/error-web-console-uncaught-typeerror-cannot-call-method-getitem-of-null-at-h" target="_blank" rel="external">答案</a><br>是安卓那边没有给当前的这个webview开启缓存权限。坑爹( ⊙ o ⊙ )啊！<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">WebSettings settings = webView.getSettings();</div><div class="line">settings.setDomStorageEnabled(<span class="keyword">true</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="改用cookie"><a href="#改用cookie" class="headerlink" title="改用cookie"></a>改用cookie</h1><p>没办法，最后改用<code>cookie</code>来存数据。<br><a href="http://www.cnblogs.com/fishtreeyu/archive/2011/10/06/2200280.html" target="_blank" rel="external">cookie的操作方法</a></p>
+
       
     </div>
 
@@ -474,15 +468,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
+            <a href="/tags/localStorage/" rel="tag"># localStorage</a>
           
-            <a href="/tags/this/" rel="tag"># this</a>
+            <a href="/tags/android/" rel="tag"># android</a>
           
-            <a href="/tags/const/" rel="tag"># const</a>
+            <a href="/tags/webview/" rel="tag"># webview</a>
           
-            <a href="/tags/let/" rel="tag"># let</a>
-          
-            <a href="/tags/es6/" rel="tag"># es6</a>
+            <a href="/tags/cookie/" rel="tag"># cookie</a>
           
         </div>
       
@@ -495,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/28/git-创建空白分支/" rel="next" title="git 创建空白分支">
-                <i class="fa fa-chevron-left"></i> git 创建空白分支
+              <a href="/2017/03/19/ruff-implement-a-responder/" rel="next" title="[ruff学习]按键抢答器的实现">
+                <i class="fa fa-chevron-left"></i> [ruff学习]按键抢答器的实现
               </a>
             
           </div>
@@ -504,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/28/复制高亮代码到印象笔记/" rel="prev" title="复制高亮代码到印象笔记">
-                复制高亮代码到印象笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,8 +544,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/28/回答-const-与let-以及-this/"
-           data-title="[回答]const 与let 以及 this" data-url="https://ziazan.github.io/2017/02/28/回答-const-与let-以及-this/">
+      <div class="ds-thread" data-thread-key="2017/03/22/Cannot-call-method-getItem-of-null/"
+           data-title="android webview localStorage 操作无效" data-url="https://ziazan.github.io/2017/03/22/Cannot-call-method-getItem-of-null/">
       </div>
     
   </div>
@@ -670,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-关于this"><span class="nav-number">1.</span> <span class="nav-text">1.关于this</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-例子1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.1 例子1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-例子2"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1.2 例子2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-例子3"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">1.3 例子3</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-关于const-与-let的选择"><span class="nav-number">2.</span> <span class="nav-text">2.关于const 与 let的选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找线索"><span class="nav-number">2.</span> <span class="nav-text">寻找线索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改用cookie"><span class="nav-number">4.</span> <span class="nav-text">改用cookie</span></a></li></ol></div>
             
 
           </div>
