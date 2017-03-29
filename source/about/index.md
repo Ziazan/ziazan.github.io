@@ -7,7 +7,7 @@ comments: false
 
 # 联系方式
 
-- Email：494074947@qq.com
+- Email：littlefourzhang@gmail.com
 - QQ：494074947
 - 微信号:wxid_littlefour
 
